@@ -7,9 +7,10 @@
 </script>
 
 <template>
-	<h1>
+	<div>
+		<h1>HOME</h1>
 		<a-button type="primary" size="large">
 			<router-link to="/planning-prokers">Planning Proker Room</router-link>
 		</a-button>
-	</h1>
+	</div>
 </template>
