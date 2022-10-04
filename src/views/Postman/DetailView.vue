@@ -49,7 +49,7 @@
 				<a-col span="12" style="background-color: bisque" class="jsoneditor-col">
 					<JsonEditorVue v-model="jsonData.value" v-model:mode="jsonData.mode" />
 				</a-col>
-				<a-col span="12" style="background-color: blanchedalmond"> </a-col>
+				<a-col span="12" style="background-color: blanchedalmond">result</a-col>
 			</a-row>
 		</a-col>
 	</a-row>
