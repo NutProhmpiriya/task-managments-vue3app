@@ -30,11 +30,11 @@
 	<a-layout-sider :collapsed="collapsed" :trigger="null" collapsible>
 		<div class="logo" />
 		<a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline" @click="handleclickMenu">
-			<a-menu-item key="/planning-proker">
+			<a-menu-item key="/planning-prokers">
 				<user-outlined />
 				<span>Planning Proker</span>
 			</a-menu-item>
-			<a-menu-item key="/planning-proker/1">
+			<a-menu-item key="/planning-prokers/1">
 				<video-camera-outlined />
 				<span>Planning Proke Detail</span>
 			</a-menu-item>

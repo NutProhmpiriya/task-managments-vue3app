@@ -9,7 +9,7 @@
 <template>
 	<h1>
 		<a-button type="primary" size="large">
-			<router-link to="/planing-prokers">Planning Proker Room</router-link>
+			<router-link to="/planning-prokers">Planning Proker Room</router-link>
 		</a-button>
 	</h1>
 </template>

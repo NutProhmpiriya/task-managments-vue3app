@@ -9,12 +9,12 @@ const router = createRouter({
 			component: () => import('../views/Home/HomeView.vue'),
 		},
 		{
-			path: '/planning-proker',
+			path: '/planning-prokers',
 			name: 'PlaningProkerRoom',
 			component: () => import('../views/PlanningProkerRoom/ListView.vue'),
 		},
 		{
-			path: '/planning-proker/:id',
+			path: '/planning-prokers/:id',
 			name: 'PlaningProkerRoomDetail',
 			component: () => import('../views/PlanningProkerRoom/DetailView.vue'),
 		},
