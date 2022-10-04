@@ -1,8 +1,16 @@
 <script lang="ts">
-	import { defineComponent, ref, watch } from 'vue'
+	import { defineComponent, ref, reactive } from 'vue'
 	import { CaretDownOutlined } from '@ant-design/icons-vue'
 	import JsonEditorVue from 'json-editor-vue'
-	import 'vanilla-jsoneditor/themes/jse-theme-dark.css'
+	import type { Mode } from 'json-editor-vue'
+
+	interface IJsonEditorVue {
+		value: any
+		mode?: Mode
+		readOnly?: boolean
+		class?: string
+	}
+
 	export default defineComponent({
 		name: 'PostmanDetailView',
 		components: {
@@ -11,18 +19,10 @@
 		},
 		setup() {
 			const inputValue = ref<string>('')
-			const jsonContent = ref()
-			const options = ref()
-
-			const editorJsonError = () => {}
-			watch(jsonContent, val => {
-				console.log(val)
-			})
+			const jsonData = reactive<IJsonEditorVue>({ value: undefined, mode: 'text', readOnly: false })
 			return {
 				inputValue,
-				jsonContent,
-				options,
-				editorJsonError,
+				jsonData,
 			}
 		},
 	})
@@ -46,8 +46,8 @@
 				</a-col>
 			</a-row>
 			<a-row style="height: 92.5%">
-				<a-col span="12" style="background-color: bisque">
-					<JsonEditorVue v-model="jsonContent" class="jsoneditor" mode="text" />
+				<a-col span="12" style="background-color: bisque" class="jsoneditor-col">
+					<JsonEditorVue v-model="jsonData.value" v-model:mode="jsonData.mode" />
 				</a-col>
 				<a-col span="12" style="background-color: blanchedalmond"> </a-col>
 			</a-row>
@@ -56,7 +56,7 @@
 </template>
 
 <style scoped>
-	.jsoneditor {
-		height: 100%;
+	:deep(.ant-col .jsoneditor-col > div) {
+		height: 100% !important;
 	}
 </style>
