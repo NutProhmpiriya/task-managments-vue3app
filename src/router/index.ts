@@ -9,14 +9,34 @@ const router = createRouter({
 			component: () => import('../views/Home/HomeView.vue'),
 		},
 		{
-			path: '/planning-poker',
+			path: '/planning-proker',
 			name: 'PlaningProkerRoom',
 			component: () => import('../views/PlanningProkerRoom/ListView.vue'),
 		},
 		{
-			path: '/planning-poker/:id',
+			path: '/planning-proker/:id',
 			name: 'PlaningProkerRoomDetail',
 			component: () => import('../views/PlanningProkerRoom/DetailView.vue'),
+		},
+		{
+			path: '/postman',
+			name: 'Postman',
+			component: () => import('../views/Postman/DetailView.vue'),
+		},
+		{
+			path: '/blogposts',
+			name: 'BlogPostList',
+			component: () => import('../views/BlogPosts/ListView.vue'),
+		},
+		{
+			path: '/blogposts/:id',
+			name: 'BlogPostDetail',
+			component: () => import('../views/BlogPosts/DetailView.vue'),
+		},
+		{
+			path: '/blogposts/create',
+			name: 'CreatePost',
+			component: () => import('../views/BlogPosts/EditorView.vue'),
 		},
 		{
 			path: '/:pathMatch(.*)*',

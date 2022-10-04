@@ -30,13 +30,21 @@
 	<a-layout-sider :collapsed="collapsed" :trigger="null" collapsible>
 		<div class="logo" />
 		<a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline" @click="handleclickMenu">
-			<a-menu-item key="/planning-poker">
+			<a-menu-item key="/planning-proker">
 				<user-outlined />
-				<span>nav 1</span>
+				<span>Planning Proker</span>
 			</a-menu-item>
-			<a-menu-item key="/planning-poker/1">
+			<a-menu-item key="/planning-proker/1">
 				<video-camera-outlined />
-				<span>nav 2</span>
+				<span>Planning Proke Detail</span>
+			</a-menu-item>
+			<a-menu-item key="/postman">
+				<upload-outlined />
+				<span>Postman</span>
+			</a-menu-item>
+			<a-menu-item key="/blogposts">
+				<upload-outlined />
+				<span>Blogposts</span>
 			</a-menu-item>
 			<a-menu-item key="/about">
 				<upload-outlined />

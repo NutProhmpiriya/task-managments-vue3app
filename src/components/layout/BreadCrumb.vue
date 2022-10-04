@@ -16,8 +16,10 @@
 
 <template>
 	<a-breadcrumb class="breadcrumb-container">
-		<a-breadcrumb-item v-for="breadcrumb in breadcrumbs" :key="breadcrumb.path">
-			<router-link :to="breadcrumb.path">{{ breadcrumb.name }}</router-link>
+		<!--  eslint-disable-next-line prettier/prettier -->
+		<a-breadcrumb-item v-for="(breadcrumb, index) in breadcrumbs" :key="breadcrumb.path">
+			<span v-if="index === 0">{{ breadcrumb.name }}</span>
+			<router-link v-else :to="breadcrumb.path">{{ breadcrumb.name }}</router-link>
 		</a-breadcrumb-item>
 	</a-breadcrumb>
 </template>

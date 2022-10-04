@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue'
+	import { MenuUnfoldOutlined, MenuFoldOutlined, BellOutlined } from '@ant-design/icons-vue'
 	import { defineComponent } from 'vue'
 	export default defineComponent({
 		name: 'HeaderBarApp',
 		components: {
 			MenuUnfoldOutlined,
 			MenuFoldOutlined,
+			BellOutlined,
 		},
 		props: {
 			collapsed: Boolean,
@@ -19,8 +20,18 @@
 
 <template>
 	<a-layout-header style="background: #fff; padding-left: 0.5rem">
-		<menu-unfold-outlined v-if="collapsed" class="trigger" @click="() => setCollapsed()" />
-		<menu-fold-outlined v-else class="trigger" @click="() => setCollapsed()" />
+		<a-row>
+			<a-col span="8">
+				<MenuUnfoldOutlined v-if="collapsed" class="trigger" @click="() => setCollapsed()" />
+				<MenuFoldOutlined v-else class="trigger" @click="() => setCollapsed()" />
+			</a-col>
+			<a-col span="8"></a-col>
+			<a-col span="8">
+				<a-row justify="end" align="middle" style="height: 100%">
+					<BellOutlined style="font-size: 1.25rem" />
+				</a-row>
+			</a-col>
+		</a-row>
 	</a-layout-header>
 </template>
 
