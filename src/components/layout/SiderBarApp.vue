@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { UserOutlined, VideoCameraOutlined, UploadOutlined } from '@ant-design/icons-vue'
 	import { defineComponent, ref } from 'vue'
+	import { useRouter } from 'vue-router'
 	export default defineComponent({
 		name: 'SiderBarApp',
 		components: {
@@ -12,8 +13,15 @@
 			collapsed: Boolean,
 		},
 		setup() {
+			const router = useRouter()
+			const handleclickMenu = (e: any) => {
+				if (e.key) {
+					router.push(e.key)
+				}
+			}
 			return {
 				selectedKeys: ref<string[]>(['1']),
+				handleclickMenu,
 			}
 		},
 	})
@@ -21,16 +29,16 @@
 <template>
 	<a-layout-sider :collapsed="collapsed" :trigger="null" collapsible>
 		<div class="logo" />
-		<a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-			<a-menu-item key="1">
+		<a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline" @click="handleclickMenu">
+			<a-menu-item key="/planning-poker">
 				<user-outlined />
 				<span>nav 1</span>
 			</a-menu-item>
-			<a-menu-item key="2">
+			<a-menu-item key="/planning-poker/1">
 				<video-camera-outlined />
 				<span>nav 2</span>
 			</a-menu-item>
-			<a-menu-item key="3">
+			<a-menu-item key="/about">
 				<upload-outlined />
 				<span>nav 3</span>
 			</a-menu-item>

@@ -1,7 +1,29 @@
+<script lang="ts">
+	import { defineComponent } from 'vue'
+	export interface IBreadcrumb {
+		path: string
+		name: string
+	}
+	export default defineComponent({
+		name: 'BreadCrumb',
+		props: {
+			breadcrumbs: {
+				type: Array as () => IBreadcrumb[],
+			},
+		},
+	})
+</script>
+
 <template>
-	<a-breadcrumb style="margin: 16px 0">
-		<a-breadcrumb-item>Home</a-breadcrumb-item>
-		<a-breadcrumb-item>List</a-breadcrumb-item>
-		<a-breadcrumb-item>App</a-breadcrumb-item>
+	<a-breadcrumb class="breadcrumb-container">
+		<a-breadcrumb-item v-for="breadcrumb in breadcrumbs" :key="breadcrumb.path">
+			<router-link :to="breadcrumb.path">{{ breadcrumb.name }}</router-link>
+		</a-breadcrumb-item>
 	</a-breadcrumb>
 </template>
+
+<style scoped>
+	.breadcrumb-container {
+		margin: 0.5rem 0 0 1rem;
+	}
+</style>
