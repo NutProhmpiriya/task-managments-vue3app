@@ -1,3 +1,3 @@
 <template>
-  <h3>Room Detail</h3>
+  <h3>Room List</h3>
 </template>

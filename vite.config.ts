@@ -16,7 +16,7 @@ export default defineConfig({
     preprocessorOptions: {
       less: {
         modifyVars: {
-          hack: `true; @import "src/assets/less/antd-custom.less";`,
+          hack: `true; @import "src/assets/styles/less/antd.less";`,
         },
         javascriptEnabled: true,
       },
