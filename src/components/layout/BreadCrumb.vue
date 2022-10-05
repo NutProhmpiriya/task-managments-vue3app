@@ -1,25 +1,22 @@
-<script lang="ts">
-	import { defineComponent } from 'vue'
+<script setup lang="ts">
+	import type { PropType } from 'vue'
+
 	export interface IBreadcrumb {
 		path: string
 		name: string
 	}
-	export default defineComponent({
-		name: 'BreadCrumb',
-		props: {
-			breadcrumbs: {
-				type: Array as () => IBreadcrumb[],
-			},
+	defineProps({
+		breadcrumbs: {
+			type: Array as PropType<IBreadcrumb[]>,
+			required: true,
 		},
 	})
 </script>
 
 <template>
 	<a-breadcrumb class="breadcrumb-container">
-		<!--  eslint-disable-next-line prettier/prettier -->
-		<a-breadcrumb-item v-for="(breadcrumb, index) in breadcrumbs" :key="breadcrumb.path">
-			<span v-if="index === 0">{{ breadcrumb.name }}</span>
-			<router-link v-else :to="breadcrumb.path">{{ breadcrumb.name }}</router-link>
+		<a-breadcrumb-item v-for="breadcrumb in breadcrumbs" :key="breadcrumb.path">
+			<router-link :to="breadcrumb.path">{{ breadcrumb.name }}</router-link>
 		</a-breadcrumb-item>
 	</a-breadcrumb>
 </template>

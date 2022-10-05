@@ -1,30 +1,20 @@
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
-export default defineComponent({
-  setup() {
-    const visible = ref<boolean>(false)
+<script setup lang="ts">
+	import { ref } from 'vue'
 
-    const showModal = () => {
-      visible.value = true
-    }
-
-    const handleOk = () => {
-      visible.value = false
-    }
-
-    return {
-      visible,
-      showModal,
-      handleOk,
-    }
-  },
-})
+	const visible = ref(false)
+	const handleOk = () => {
+		visible.value = false
+	}
+	const showModal = () => {
+		visible.value = true
+	}
+	defineExpose({ showModal })
 </script>
 
 <template>
-  <a-modal v-model:visible="visible" title="Basic Modal" @ok="handleOk">
-    <p>Some contents...</p>
-    <p>Some contents...</p>
-    <p>Some contents...</p>
-  </a-modal>
+	<a-modal v-model:visible="visible" title="Basic Modal" @ok="handleOk">
+		<p>Some contents...</p>
+		<p>Some contents...</p>
+		<p>Some contents...</p>
+	</a-modal>
 </template>

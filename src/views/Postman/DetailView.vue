@@ -1,5 +1,5 @@
-<script lang="ts">
-	import { defineComponent, ref, reactive } from 'vue'
+<script setup lang="ts">
+	import { ref, reactive } from 'vue'
 	import { CaretDownOutlined } from '@ant-design/icons-vue'
 	import JsonEditorVue from 'json-editor-vue'
 	import type { Mode } from 'json-editor-vue'
@@ -11,21 +11,8 @@
 		class?: string
 	}
 
-	export default defineComponent({
-		name: 'PostmanDetailView',
-		components: {
-			CaretDownOutlined,
-			JsonEditorVue,
-		},
-		setup() {
-			const inputValue = ref<string>('')
-			const jsonData = reactive<IJsonEditorVue>({ value: undefined, mode: 'text', readOnly: false })
-			return {
-				inputValue,
-				jsonData,
-			}
-		},
-	})
+	const inputValue = ref<string>('')
+	const jsonData = reactive<IJsonEditorVue>({ value: undefined, mode: 'text', readOnly: false })
 </script>
 
 <template>

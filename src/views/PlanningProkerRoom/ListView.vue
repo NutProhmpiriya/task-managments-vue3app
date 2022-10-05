@@ -1,12 +1,4 @@
-<script lang="ts">
-	import { defineComponent } from 'vue'
-	export default defineComponent({
-		name: 'PanningProkerDetailView',
-		setup() {
-			return {}
-		},
-	})
-</script>
+<script setup lang="ts"></script>
 
 <template>
 	<h3>Room List</h3>

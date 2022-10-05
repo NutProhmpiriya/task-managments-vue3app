@@ -1,19 +1,10 @@
-<script lang="ts">
+<script setup lang="ts">
 	import { MenuUnfoldOutlined, MenuFoldOutlined, BellOutlined } from '@ant-design/icons-vue'
-	import { defineComponent } from 'vue'
-	export default defineComponent({
-		name: 'HeaderBarApp',
-		components: {
-			MenuUnfoldOutlined,
-			MenuFoldOutlined,
-			BellOutlined,
-		},
-		props: {
-			collapsed: Boolean,
-			setCollapsed: {
-				type: Function,
-				required: true,
-			},
+	defineProps({
+		collapsed: Boolean,
+		setCollapsed: {
+			type: Function,
+			required: true,
 		},
 	})
 </script>
