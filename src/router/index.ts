@@ -39,6 +39,11 @@ const router = createRouter({
 			component: () => import('../views/BlogPosts/EditorView.vue'),
 		},
 		{
+			path: '/antdform',
+			name: 'AntDForm',
+			component: () => import('../views/AntdForm/AntdFormView.vue'),
+		},
+		{
 			path: '/:pathMatch(.*)*',
 			name: 'NotFound',
 			component: () => import('../views/Errors/404View.vue'),

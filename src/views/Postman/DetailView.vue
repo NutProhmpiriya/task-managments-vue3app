@@ -3,6 +3,7 @@
 	import { CaretDownOutlined } from '@ant-design/icons-vue'
 	import JsonEditorVue from 'json-editor-vue'
 	import type { Mode } from 'json-editor-vue'
+	import { ACol, ARow, AButton, AInput } from '@/components/atnd'
 
 	interface IJsonEditorVue {
 		value: any
@@ -16,30 +17,30 @@
 </script>
 
 <template>
-	<a-row style="height: 100%">
-		<a-col :span="5" style="background-color: blanchedalmond">FOLDER</a-col>
-		<a-col :span="19" style="padding: 0 0 0 0.5rem">
-			<a-row :gutter="16" style="margin-bottom: 1rem">
-				<a-col :span="17">
-					<a-input size="large" v-model:value="inputValue" />
-				</a-col>
-				<a-col :span="5">
-					<a-button size="large" block type="primary">Add</a-button>
-				</a-col>
-				<a-col :span="2">
-					<a-button size="large" block type="primary">
+	<ARow style="height: 100%">
+		<ACol :span="5" style="background-color: blanchedalmond">FOLDER</ACol>
+		<ACol :span="19" style="padding: 0 0 0 0.5rem">
+			<ARow :gutter="16" style="margin-bottom: 1rem">
+				<ACol :span="17">
+					<AInput size="large" v-model:value="inputValue" />
+				</ACol>
+				<ACol :span="5">
+					<AButton size="large" block type="primary">Add</AButton>
+				</ACol>
+				<ACol :span="2">
+					<AButton size="large" block type="primary">
 						<CaretDownOutlined />
-					</a-button>
-				</a-col>
-			</a-row>
-			<a-row style="height: 92.5%">
-				<a-col span="12" style="background-color: bisque" class="jsoneditor-col">
+					</AButton>
+				</ACol>
+			</ARow>
+			<ARow style="height: 92.5%">
+				<ACol span="12" style="background-color: bisque" class="jsoneditor-col">
 					<JsonEditorVue v-model="jsonData.value" v-model:mode="jsonData.mode" />
-				</a-col>
-				<a-col span="12" style="background-color: blanchedalmond">result</a-col>
-			</a-row>
-		</a-col>
-	</a-row>
+				</ACol>
+				<ACol span="12" style="background-color: blanchedalmond">result</ACol>
+			</ARow>
+		</ACol>
+	</ARow>
 </template>
 
 <style scoped>

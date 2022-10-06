@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import type { PropType } from 'vue'
-
+	import { ABreadcrumb, ABreadcrumbItem } from '../atnd'
 	export interface IBreadcrumb {
 		path: string
 		name: string
@@ -14,11 +14,11 @@
 </script>
 
 <template>
-	<a-breadcrumb class="breadcrumb-container">
-		<a-breadcrumb-item v-for="breadcrumb in breadcrumbs" :key="breadcrumb.path">
+	<ABreadcrumb class="breadcrumb-container">
+		<ABreadcrumbItem v-for="breadcrumb in breadcrumbs" :key="breadcrumb.path">
 			<router-link :to="breadcrumb.path">{{ breadcrumb.name }}</router-link>
-		</a-breadcrumb-item>
-	</a-breadcrumb>
+		</ABreadcrumbItem>
+	</ABreadcrumb>
 </template>
 
 <style scoped>

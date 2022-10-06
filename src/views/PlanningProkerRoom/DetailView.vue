@@ -2,6 +2,7 @@
 	import { ref } from 'vue'
 	import SignUpModal from '@/components/auth/SignUpModal.vue'
 	import { useRoute } from 'vue-router'
+	import { AButton } from '@/components/atnd'
 
 	const singUpModalRef = ref<InstanceType<typeof SignUpModal> | null>(null)
 	const roomId = useRoute().params.id
@@ -13,7 +14,7 @@
 <template>
 	<div>
 		<h3>Planning Room Detail {{ roomId }}</h3>
-		<a-button type="primary" @click="openModal">OPEN MODAL</a-button>
+		<AButton type="primary" @click="openModal">OPEN MODAL</AButton>
 		<SignUpModal ref="singUpModalRef" />
 	</div>
 </template>
