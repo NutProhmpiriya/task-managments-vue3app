@@ -13,12 +13,13 @@
 		let error: any
 		validate()
 			.then(() => {
-				console.log('validate success C', modelRef)
+				console.log('validate successA', modelRef)
 			})
 			.catch(errorInfo => {
 				console.log('validate failed', errorInfo)
+				error = errorInfo
 			})
-		return { data: modelRef, error }
+		return { data: modelRef, error: error }
 	}
 
 	const resetFormC = () => {

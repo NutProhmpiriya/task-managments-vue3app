@@ -19,7 +19,7 @@
 				console.log('validate failed', errorInfo)
 				error = errorInfo
 			})
-		return { data: modelRef, error }
+		return { data: modelRef, error: error }
 	}
 
 	const resetFormA = () => {

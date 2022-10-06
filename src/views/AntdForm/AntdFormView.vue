@@ -8,7 +8,8 @@
 	const formAntD1Ref = ref<InstanceType<typeof FormAntD1> | null>(null)
 	const formAntD2Ref = ref<InstanceType<typeof FormAntD2> | null>(null)
 	const formAntD3Ref = ref<InstanceType<typeof FormAntD3> | null>(null)
-
+	const dataAllForm = ref({})
+	const visible = ref(false)
 	const handlerSubmit = () => {
 		const formA = formAntD1Ref.value?.submitFormA()
 		if (formA?.error || !formA?.data) {
@@ -22,7 +23,11 @@
 		if (formC?.error || !formC?.data) {
 			console.log('errorC', formC?.error)
 		}
-		console.log('AllForm', { a: toRaw(formA?.data), b: toRaw(formB?.data), c: toRaw(formC?.data) })
+		visible.value = true
+		dataAllForm.value = { a: toRaw(formA?.data), b: toRaw(formB?.data), c: toRaw(formC?.data) }
+	}
+	const afterCloseModal = () => {
+		dataAllForm.value = {}
 	}
 </script>
 
@@ -40,5 +45,8 @@
 				<FormAntD3 ref="formAntD3Ref" />
 			</a-tab-pane>
 		</a-tabs>
+		<a-modal v-model:visible="visible" title="Result All Form" :afterClose="afterCloseModal">
+			<pre>{{ dataAllForm }}</pre>
+		</a-modal>
 	</div>
 </template>
